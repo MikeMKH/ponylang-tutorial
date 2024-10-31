@@ -1,2 +1,2 @@
-# ponylang-setup
-hello world examples of setting up pony
+# ponylang-tutorial
+examples from the ponylang [tutorial](https://tutorial.ponylang.io/)
