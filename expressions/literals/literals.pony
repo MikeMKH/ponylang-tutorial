@@ -37,3 +37,31 @@ actor Main
       env.out.print("found some " + pony)
     end
     
+    // array examples
+    let my_literal_array =
+      [
+        "first"; "second"
+        "third one on a new line"
+      ]
+    let my_heterogenous_array =
+      [
+        U64(42)
+        "42"
+        U64.min_value()
+      ]
+    let my_stringable_array: Array[Stringable] ref =
+      [
+        U64(0xA)
+        "0xA"
+      ]
+    let my_immutable_array: Array[Stringable] val =
+      [
+        U64(0xBEEF)
+        "0xBEEF"
+      ]
+    let my_as_array =
+      [ as Stringable:
+        U64(0xFFEF)
+        "0xFFEF"
+        U64(1 + 1)
+      ]
