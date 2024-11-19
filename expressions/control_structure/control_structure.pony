@@ -57,3 +57,7 @@ actor Main
     env.out.print(count.string())
     count = count + 1
   end
+  
+  for name in ["Bob"; "Fred"; "Sarah"].values() do
+    env.out.print(name)
+  end
