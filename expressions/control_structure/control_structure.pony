@@ -61,3 +61,9 @@ actor Main
   for name in ["Bob"; "Fred"; "Sarah"].values() do
     env.out.print(name)
   end
+  
+  var counter = U64(1)
+  repeat
+    env.out.print("hello!")
+    counter = counter + 1
+  until counter > 7 end
