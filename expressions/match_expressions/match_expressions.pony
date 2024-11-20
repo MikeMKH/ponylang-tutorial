@@ -66,6 +66,16 @@ actor Main
     | let u: U32 => "other integer"
     | let s: String => s
     end
+  
+  fun f7(x: (String | None), y: U32): String =>
+    match (x, y)
+    | (None, let u: U32) => "none"
+    | (let s: String, 2) => s + " two"
+    | (let s: String, 3) => s + " three"
+    | (let s: String, let u: U32) => s + " other integer"
+    else
+      "something else"
+    end
 
   new create(env: Env) =>
     _x6 = None
@@ -83,6 +93,10 @@ actor Main
     
     let x5 = "lily"
     env.out.print("x is " + f5(x5))
+    
+    let x7 = "lily"
+    let y7: U32 = 8
+    env.out.print("x and y are " + f7(x7, y7))
 
   be f(a': A iso) =>
     match (_x6 = None) // type of this expression: (A iso^ | B ref | None)
