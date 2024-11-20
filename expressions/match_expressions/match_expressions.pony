@@ -47,6 +47,15 @@ actor Main
     else
       ""
     end
+    
+  fun f5(x: (U32 | String | None)): String =>
+    match x
+    | None => "none"
+    | 2 => "two"
+    | 3 => "three"
+    | let u: U32 => "other integer"
+    | let s: String => s
+    end
 
   new create(env: Env) =>
     let x1: U32 = 5
@@ -59,5 +68,8 @@ actor Main
     env.out.print("x is " + f3(x3))
     
     env.out.print("x is " + f4(Bar))
+    
+    let x5 = "lily"
+    env.out.print("x is " + f5(x5))
     
     
