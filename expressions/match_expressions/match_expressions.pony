@@ -9,7 +9,17 @@ class Foo
 
 class Bar is Equatable[Bar]
 
+class A
+  fun ref sendable() =>
+    None
+
+class B
+  fun ref update() =>
+    None
+
 actor Main
+  var _x6: (A iso | B ref | None)
+  
   fun f1(x: U32): String =>
     match x
     | 1 => "one"
@@ -58,6 +68,8 @@ actor Main
     end
 
   new create(env: Env) =>
+    _x6 = None
+    
     let x1: U32 = 5
     env.out.print("x is " + f1(x1))
     
@@ -71,5 +83,11 @@ actor Main
     
     let x5 = "lily"
     env.out.print("x is " + f5(x5))
+
+  be f(a': A iso) =>
+    match (_x6 = None) // type of this expression: (A iso^ | B ref | None)
+    | let a: A iso => f(consume a)
+    | let b: B ref => b.update()
+    end
     
     
