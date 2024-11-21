@@ -9,7 +9,13 @@ class Capybara is Critter
   fun swim(): String => "I'm swimming like a fish!"
 
 actor Main
+  fun foo(xs: (Array[U32] ref | Array[U64] ref)): Bool =>
+    // do something boring here
+    true
+    
   new create(env: Env) =>
+    foo([as U32: 1; 2; 3])
+    
     let critters = Array[Critter].>push(Wombat).>push(Capybara)
     for critter in critters.values() do
       env.out.print(critter.wash())
