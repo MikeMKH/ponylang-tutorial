@@ -27,6 +27,14 @@ class Foo
     let a = hello("Fred")
     a
 
+  fun j(a: U32 = 1, b: U32 = 2, c: U32 = 3, d: U32 = 4, e: U32 = 5): U32  =>
+    0
+
+  fun k() =>
+    j(6, 7 where d = 8)
+    // Equivalent to:
+    j(6, 7, 3, 8, 5)
+
 class Bar
   fun f() =>
     var a: Foo = Foo.from_int(3)
@@ -40,6 +48,10 @@ class Bar
     var a: Coord = Coord.create()     // Contains (0, 0)
     var b: Coord = Coord.create(3)    // Contains (3, 0)
     var c: Coord = Coord.create(3, 4) // Contains (3, 4)
+
+  fun j() =>
+    var a: Coord = Coord.create(3, 4) // Contains (3, 4)
+    var b: Coord = Coord.create(where y = 4, x = 3) // Contains (3, 4)
 
 class Coord
   var _x: U32
