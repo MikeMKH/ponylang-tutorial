@@ -61,6 +61,14 @@ class Coord
     _x = x
     _y = y
 
+primitive Printer
+  fun print_two_strings(out: StdStream, s1: String, s2: String) =>
+    out.>print(s1).>print(s2)
+    // Equivalent to:
+    // out.print(s1)
+    // out.print(s2)
+    // out
+
 actor Main
   new create(env: Env) =>
     env.out.print("2 + 3 = " + C.add(2, 3).string())
@@ -69,3 +77,7 @@ actor Main
     env.out.print(foo.hello("Lily"))
     env.out.print(foo.f())
     env.out.print("8 + 1 = " + Bar.g(8).string())
+    try
+      let std: StdStream = env.out as StdStream
+      Printer.print_two_strings(std where s2 = "world", s1 = "hello")
+    end
