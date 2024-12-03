@@ -7,12 +7,6 @@ class Foo
   fun eq(that: box->Foo): Bool =>
     this._a == that._a
 
-class Bar
-  let _a: String
-  
-  new create(a: String) =>
-    _a = a
-
 actor Main
   new create(env: Env) =>
     // identity equality
