@@ -35,3 +35,20 @@ actor Main
     else
       env.out.print("a is not c")
     end
+    
+    // structural equality
+    let x = Foo("hi")
+    let y = Foo("bye")
+    let z = Foo("hi")
+    
+    if x == y then
+      env.out.print("x == y")
+    else
+      env.out.print("x != y") // "hi" != "bye"
+    end
+    
+    if x == z then
+      env.out.print("x == z") // "hi" == "hi"
+    else
+      env.out.print("x != z")
+    end
