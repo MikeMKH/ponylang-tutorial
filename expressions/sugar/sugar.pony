@@ -15,3 +15,6 @@ actor Main
     
     let lily = Foo("lily")
     let jack = Foo.create("jack")
+    
+    let x = Foo("x")
+    let y = Foo.create().apply("y")
