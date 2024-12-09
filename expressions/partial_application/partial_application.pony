@@ -17,3 +17,11 @@ actor Main
     let f2 = foo~addmul()
     env.out.print("(((3 * 4) + 1 * 2) + 5) * 6 = " + f2(5, 6).string())
     
+    let f3 = foo~addmul(where mul = 2)
+    env.out.print("(((((3 * 4) + 1 * 2) + 5) * 6) + 7) * 2 = " + f3(7).string())
+    
+    let bar: Foo = Foo
+    let g = bar~addmul()
+    let g' = bar~addmul(5)
+    env.out.print("5 * 7 = " + g'(7).string())
+    
