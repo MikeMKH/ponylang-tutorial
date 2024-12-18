@@ -12,10 +12,13 @@ actor Main
   fun makeTrn(a: String iso): String trn^ =>
     let b: String trn = consume a // consume(iso!) => iso^ => iso => trn
     b
+  
+  fun test4(a: String iso) =>
+    var b: String iso! = a
     
   new create(env: Env) =>
     test2("iso=>tag".clone())
     test3(makeTrn("trn=>box".clone()))
-    
+    test4("iso=>tag".clone())
     env.out.print("aliasing")
     
