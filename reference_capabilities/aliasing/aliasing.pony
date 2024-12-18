@@ -15,10 +15,14 @@ actor Main
   
   fun test4(a: String iso) =>
     var b: String iso! = a
+  
+  fun test5(a: String iso): String iso^ =>
+    consume a
     
   new create(env: Env) =>
     test2("iso=>tag".clone())
     test3(makeTrn("trn=>box".clone()))
     test4("iso=>tag".clone())
+    test5("iso=>iso^".clone())
     env.out.print("aliasing")
     
